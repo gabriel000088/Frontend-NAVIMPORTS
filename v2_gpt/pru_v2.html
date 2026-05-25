@@ -1,0 +1,545 @@
+<t name="Homepage" t-name="website.homepage">
+    <t t-call="website.layout" pagename.f="homepage">
+        <style>
+
+            :root{
+                --nav-black:#111111;
+                --nav-soft:#6b6b6b;
+                --nav-light:#f7f7f5;
+                --nav-border:#e9e9e7;
+                --nav-red:#cc0022;
+                --nav-card:#ffffff;
+            }
+
+            body{
+                background:var(--nav-light);
+                color:var(--nav-black);
+                font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+            }
+
+            /* HERO */
+
+            .nav-hero{
+                min-height:92vh;
+                display:flex;
+                align-items:center;
+                position:relative;
+                overflow:hidden;
+            }
+
+            .nav-hero .o_we_bg_filter{
+                background:linear-gradient(
+                    90deg,
+                    rgba(255,255,255,.96) 0%,
+                    rgba(255,255,255,.90) 45%,
+                    rgba(255,255,255,.15) 100%
+                ) !important;
+            }
+
+            .nav-hero h1{
+                font-size:clamp(3.5rem,9vw,7rem);
+                line-height:.92;
+                font-weight:800;
+                letter-spacing:-.05em;
+                color:#111;
+                max-width:700px;
+            }
+
+            .nav-hero p{
+                color:#666;
+                font-size:1.05rem;
+                line-height:1.8;
+                max-width:540px;
+                margin-top:2rem;
+            }
+
+            .nav-red{
+                color:var(--nav-red);
+            }
+
+            .hero-actions{
+                margin-top:2.5rem;
+                display:flex;
+                gap:1rem;
+                flex-wrap:wrap;
+            }
+
+            .hero-btn-primary{
+                background:var(--nav-black);
+                color:white !important;
+                padding:1rem 2rem;
+                border-radius:100px;
+                text-decoration:none;
+                transition:.3s;
+                font-weight:600;
+                border:none;
+            }
+
+            .hero-btn-primary:hover{
+                transform:translateY(-2px);
+                background:#000;
+            }
+
+            .hero-btn-secondary{
+                border:1px solid #ddd;
+                color:#111 !important;
+                padding:1rem 2rem;
+                border-radius:100px;
+                text-decoration:none;
+                transition:.3s;
+                background:white;
+            }
+
+            .hero-btn-secondary:hover{
+                background:#f2f2f2;
+            }
+
+            /* FLOATING CARDS */
+
+            .nav-floating-wrapper{
+                margin-top:-110px;
+                position:relative;
+                z-index:10;
+            }
+
+            .nav-glass-card{
+                background:rgba(255,255,255,.82);
+                backdrop-filter:blur(18px);
+                border:1px solid rgba(255,255,255,.6);
+                border-radius:28px;
+                padding:2.5rem;
+                height:100%;
+                box-shadow:0 15px 60px rgba(0,0,0,.08);
+                transition:.35s;
+            }
+
+            .nav-glass-card:hover{
+                transform:translateY(-6px);
+                box-shadow:0 25px 70px rgba(0,0,0,.12);
+            }
+
+            .nav-glass-card h3{
+                font-size:1.5rem;
+                font-weight:700;
+                margin-bottom:1rem;
+            }
+
+            .nav-glass-card p{
+                color:#666;
+                line-height:1.8;
+            }
+
+            /* SECTION TITLE */
+
+            .nav-section-title{
+                text-align:center;
+                margin-bottom:5rem;
+            }
+
+            .nav-section-title h2{
+                font-size:clamp(2.2rem,5vw,4rem);
+                font-weight:800;
+                letter-spacing:-.04em;
+                color:#111;
+                margin-bottom:1rem;
+            }
+
+            .nav-section-title p{
+                color:#777;
+                max-width:650px;
+                margin:auto;
+                line-height:1.8;
+            }
+
+            /* FEATURE BLOCKS */
+
+            .nav-feature{
+                border-radius:36px;
+                overflow:hidden;
+                background:white;
+                box-shadow:0 20px 80px rgba(0,0,0,.06);
+                margin-bottom:3rem;
+            }
+
+            .nav-feature-image{
+                min-height:560px;
+                background-size:cover;
+                background-position:center;
+            }
+
+            .nav-feature-content{
+                padding:5rem;
+                display:flex;
+                flex-direction:column;
+                justify-content:center;
+                height:100%;
+            }
+
+            .nav-feature-label{
+                color:var(--nav-red);
+                text-transform:uppercase;
+                letter-spacing:.18em;
+                font-size:.75rem;
+                font-weight:700;
+                margin-bottom:1rem;
+            }
+
+            .nav-feature-content h3{
+                font-size:clamp(2rem,4vw,4rem);
+                line-height:1;
+                font-weight:800;
+                letter-spacing:-.04em;
+                margin-bottom:1.5rem;
+            }
+
+            .nav-feature-content p{
+                color:#666;
+                line-height:1.9;
+                margin-bottom:2rem;
+            }
+
+            .nav-link-btn{
+                display:inline-flex;
+                align-items:center;
+                gap:.5rem;
+                text-decoration:none;
+                color:#111 !important;
+                font-weight:700;
+                transition:.3s;
+            }
+
+            .nav-link-btn:hover{
+                color:var(--nav-red) !important;
+                transform:translateX(4px);
+            }
+
+            /* PROCESS */
+
+            .nav-process{
+                padding:7rem 0;
+            }
+
+            .nav-process-card{
+                background:white;
+                border-radius:30px;
+                padding:3rem 2rem;
+                height:100%;
+                border:1px solid var(--nav-border);
+                transition:.35s;
+            }
+
+            .nav-process-card:hover{
+                transform:translateY(-8px);
+                box-shadow:0 20px 60px rgba(0,0,0,.08);
+            }
+
+            .nav-process-card img{
+                width:82px;
+                margin-bottom:2rem;
+            }
+
+            .nav-process-card h3{
+                font-size:1.25rem;
+                font-weight:700;
+                margin-bottom:1rem;
+            }
+
+            .nav-process-card p{
+                color:#666;
+                line-height:1.8;
+            }
+
+            /* GALLERY */
+
+            .nav-gallery{
+                padding-bottom:7rem;
+            }
+
+            .nav-gallery img{
+                border-radius:26px;
+                transition:.45s;
+                filter:brightness(.96);
+            }
+
+            .nav-gallery img:hover{
+                transform:scale(1.02);
+                filter:brightness(1);
+            }
+
+            /* SCROLLBAR */
+
+            ::-webkit-scrollbar{
+                width:6px;
+            }
+
+            ::-webkit-scrollbar-track{
+                background:#efefef;
+            }
+
+            ::-webkit-scrollbar-thumb{
+                background:#111;
+                border-radius:10px;
+            }
+
+            /* MOBILE */
+
+            @media(max-width:991px){
+
+                .nav-hero{
+                    min-height:auto;
+                    padding:8rem 0;
+                }
+
+                .nav-floating-wrapper{
+                    margin-top:-60px;
+                }
+
+                .nav-feature-content{
+                    padding:3rem 2rem;
+                }
+
+                .nav-feature-image{
+                    min-height:320px;
+                }
+
+                .nav-section-title{
+                    margin-bottom:3rem;
+                }
+
+            }
+
+        </style>
+        <div id="wrap" class="oe_structure">
+            <section class="s_adventure oe_img_bg o_bg_img_center o_colored_level o_bg_img_origin_border_box pb72 pt184" style="background-image: url(&quot;/web/image/1107-00271fde/imagen_2026-05-11_205648242.webp&quot;); background-color: rgb(2, 4, 6); --darkreader-inline-bgcolor: var(--darkreader-background-020406, #020305);" data-oe-shape-data="{&quot;shape&quot;:&quot;html_builder/Connections/04&quot;,&quot;colors&quot;:{&quot;c5&quot;:&quot;#020507&quot;},&quot;flip&quot;:[],&quot;showOnMobile&quot;:false,&quot;shapeAnimationSpeed&quot;:&quot;0&quot;,&quot;selectedColor&quot;:false}" data-snippet="s_adventure" data-name="Aventura" data-attachment-id="1104" data-format-mimetype="image/webp" data-resize-width="1920" data-original-id="1104" data-original-src="/web/image/1104-ebf76736/imagen_2026-05-11_205648242.png" data-mimetype-before-conversion="image/png" data-mimetype="image/webp" data-darkreader-inline-bgcolor="">
+                <div class="o_we_bg_filter" style="background-image: linear-gradient(135deg, rgb(255, 255, 255) 0%, rgba(255, 255, 255, 0.9) 51%, rgba(255, 255, 255, 0.15) 100%); --darkreader-inline-bgimage: linear-gradient(135deg, var(--darkreader-background-ffffff, #181a1b) 0%, var(--darkreader-background-ffffffe6, rgba(24, 26, 27, 0.9)) 51%, var(--darkreader-background-ffffff26, rgba(24, 26, 27, 0.15)) 100%);" data-darkreader-inline-bgimage=""/>
+                <div class="o_we_shape o_html_builder_Connections_04" style="background-image: url(&quot;/html_editor/shape/html_builder%2FConnections%2F04.svg?c5=%23020507&quot;);"/>
+                <div class="s_allow_columns container">
+                    <p style="text-align: start;" class="small">
+                        <span class="nav-red" style="font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;">
+                            <span class="h6-fs">Navimports</span>
+                        </span>
+                    </p>
+                    <p style="text-align: start;" class="small">
+                        <br/>
+                    </p>
+                    <h1 class="display-1" style="font-family: &quot;Cormorant Garamond&quot;, serif; font-weight: 600; line-height: 1; letter-spacing: -0.01em; font-size: clamp(3.2rem, 8vw, 7rem); text-align: center;">
+                        <span class="o_animated_text o_animate o_anim_fade_in o_anim_from_right o_animate_both_scroll o_visible">
+                            <font class="text-gradient" style="background-image: linear-gradient(135deg, rgb(196, 146, 42) 0%, rgb(232, 184, 75) 45%, rgb(245, 217, 138) 100%) !important; --darkreader-inline-bgimage: linear-gradient(135deg, var(--darkreader-background-c4922a, #9d7522) 0%, var(--darkreader-background-e8b84b, #73540f) 45%, var(--darkreader-background-f5d98a, #584308) 100%);" data-darkreader-inline-bgimage="">Encuentra&amp;nbsp;</font>
+                            <span class="h2-fs" style="font-style: italic; --darkreader-inline-color: var(--darkreader-text-020406, #e5e3e0); color: rgb(2, 4, 6);" data-darkreader-inline-color="">las mejores novedades</span>
+                        </span>
+                        <span class="o_animated_text o_animate o_anim_fade_in o_anim_from_left o_animate_both_scroll o_visible">en&amp;nbsp;
+                            <font class="text-gradient" style="background-image: linear-gradient(135deg, rgb(196, 146, 42) 0%, rgb(232, 184, 75) 45%, rgb(245, 217, 138) 100%) !important; --darkreader-inline-bgimage: linear-gradient(135deg, var(--darkreader-background-c4922a, #9d7522) 0%, var(--darkreader-background-e8b84b, #73540f) 45%, var(--darkreader-background-f5d98a, #584308) 100%);" data-darkreader-inline-bgimage="">Oruro</font>
+                        </span>
+                    </h1>
+                    <p>
+                        <br/>
+                    </p>
+                    <p>
+                        <br/>
+                    </p>
+                    <div class="o_text_columns o-contenteditable-false">
+                        <div class="row">
+                            <div class="o-contenteditable-true o_colored_level col-12 col-lg-5">
+                                <p style="text-align: center;">
+                                    <span style="font-size: 17px;">
+                                        <font style="--darkreader-inline-color: var(--darkreader-text-666666, #a8a095); color: rgb(102, 102, 102);" data-darkreader-inline-color="">Descubra una nueva experiencia en productos importados, seleccionados cuidadosamente desde el país asiático para transformar espacios&amp;nbsp;modernos en Oruro.</font>
+                                    </span>
+                                </p>
+                                <p style="text-align: center;">
+                                    <br/>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <p style="text-align: center;">
+                        <a class="o_translate_inline btn rounded-circle btn-outline-custom btn-lg o_animate o_anim_fade_in o_animate_both_scroll o_visible mb-2" href="/contactus" style="color: rgb(211, 207, 201); background-color: rgba(0, 0, 0, 0); border: 1px solid rgb(129, 120, 106); --darkreader-inline-color: var(--darkreader-text-d3cfc9, #c9c4bd); --darkreader-inline-bgcolor: var(--darkreader-background-00000000, rgba(0, 0, 0, 0)); --darkreader-inline-border-top: var(--darkreader-border-81786a, #655e53); --darkreader-inline-border-right: var(--darkreader-border-81786a, #655e53); --darkreader-inline-border-bottom: var(--darkreader-border-81786a, #655e53); --darkreader-inline-border-left: var(--darkreader-border-81786a, #655e53); animation-name: dummy;" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-border-top="" data-darkreader-inline-border-right="" data-darkreader-inline-border-bottom="" data-darkreader-inline-border-left="">
+                            <span class="h6-fs">
+                                <strong>
+                                    <font class="text-o-color-1">
+                                        <u>Ver catálogo</u>
+                                    </font>
+                                </strong>
+                            </span>
+                        </a>
+                        <a class="o_translate_inline btn rounded-circle btn-outline-custom btn-lg o_animate o_anim_fade_in o_animate_both_scroll o_visible mb-2" href="/contactus" style="color: rgb(211, 207, 201); background-color: rgba(0, 0, 0, 0); border: 1px solid rgb(129, 120, 106); --darkreader-inline-color: var(--darkreader-text-d3cfc9, #c9c4bd); --darkreader-inline-bgcolor: var(--darkreader-background-00000000, rgba(0, 0, 0, 0)); --darkreader-inline-border-top: var(--darkreader-border-81786a, #655e53); --darkreader-inline-border-right: var(--darkreader-border-81786a, #655e53); --darkreader-inline-border-bottom: var(--darkreader-border-81786a, #655e53); --darkreader-inline-border-left: var(--darkreader-border-81786a, #655e53); animation-name: dummy;" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-border-top="" data-darkreader-inline-border-right="" data-darkreader-inline-border-bottom="" data-darkreader-inline-border-left="">
+                            <span class="h6-fs">
+                                <strong>
+                                    <font class="text-o-color-1">
+                                        <u>Ver tiendas</u>
+                                    </font>
+                                </strong>
+                            </span>
+                        </a>
+                    </p>
+                    <p style="text-align: center;">
+                        <br/>
+                    </p>
+                    <p style="text-align: center;">
+                        <br/>
+                    </p>
+                </div>
+            </section>
+            <section class="nav-floating-wrapper o_colored_level pb-5">
+                <div class="container">
+                    <div class="row g-4">
+                        <div class="col-lg-4 o_colored_level">
+                            <div class="nav-glass-card">
+                                <h3>Tendencia global</h3>
+                                <p>
+                                    Seleccionamos productos modernos y funcionales
+                                    basados en tendencias internacionales y novedades
+                                    destacadas de Alibaba.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 o_colored_level d-lg-block d-none o_snippet_mobile_invisible" data-invisible="1">
+                            <div class="nav-glass-card">
+                                <h3>Importación inteligente</h3>
+                                <p>
+                                    Trabajamos junto a Verago Imports para ofrecer
+                                    productos innovadores, útiles y con excelente relación
+                                    calidad-precio.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 o_colored_level">
+                            <div class="nav-glass-card">
+                                <h3>Experiencia premium</h3>
+                                <p>
+                                    Una plataforma diseñada para descubrir artículos
+                                    únicos para oficina, hogar y espacios modernos.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="py-5 o_colored_level">
+                <div class="container">
+                    <div class="nav-section-title">
+                        <h2>Espacios diseñados para destacar</h2>
+                        <p>
+                            Productos funcionales y elegantes para transformar
+                            ambientes modernos con diseño, confort y personalidad.
+                        </p>
+                    </div>
+                    <div class="nav-feature">
+                        <div class="row g-0 align-items-center">
+                            <div class="col-lg-6 o_colored_level">
+                                <div class="nav-feature-image" style="background-image:url('/web/image/website.s_floating_blocks_3');"></div>
+                            </div>
+                            <div class="col-lg-6 o_colored_level">
+                                <div class="nav-feature-content">
+                                    <span class="nav-feature-label">
+                                        Introducción
+                                    </span>
+                                    <h3>
+                                        Su nuevo espacio de trabajo
+                                    </h3>
+                                    <p>
+                                        Descubra escritorios y accesorios modernos
+                                        pensados para productividad, elegancia y
+                                        organización diaria.
+                                    </p>
+                                    <a href="/shop" class="nav-link-btn">
+                                        Comprar escritorios →
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="nav-feature">
+                        <div class="row g-0 align-items-center flex-lg-row-reverse">
+                            <div class="col-lg-6 o_colored_level">
+                                <div class="nav-feature-image" style="background-image:url('/web/image/website.s_floating_blocks_1');"></div>
+                            </div>
+                            <div class="col-lg-6 o_colored_level">
+                                <div class="nav-feature-content">
+                                    <span class="nav-feature-label">
+                                        Confort premium
+                                    </span>
+                                    <h3>
+                                        Siéntase cómodo
+                                    </h3>
+                                    <p>
+                                        Sofás y sillones modernos seleccionados
+                                        para combinar diseño elegante y máxima
+                                        comodidad.
+                                    </p>
+                                    <a href="/shop" class="nav-link-btn">
+                                        Comprar sofás →
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="nav-process o_colored_level">
+                <div class="container">
+                    <div class="nav-section-title">
+                        <h2>Cómo trabajamos</h2>
+                        <p>
+                            Un proceso simple y transparente para acercarle
+                            productos innovadores y de calidad.
+                        </p>
+                    </div>
+                    <div class="row g-4">
+                        <div class="col-lg-4 o_colored_level">
+                            <div class="nav-process-card">
+                                <img src="/web/image/1119-4b27d124/1-Iconos-1.png" loading="lazy"/>
+                                <h3>Tendencias</h3>
+                                <p>
+                                    Analizamos constantemente los productos más
+                                    populares y novedosos de plataformas globales.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 o_colored_level">
+                            <div class="nav-process-card">
+                                <img src="/web/image/1118-a45c0fc6/1-Iconos-1.png" loading="lazy"/>
+                                <h3>Selección</h3>
+                                <p>
+                                    Elegimos cuidadosamente artículos modernos,
+                                    funcionales y con gran potencial para nuestros clientes.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 o_colored_level">
+                            <div class="nav-process-card">
+                                <img src="/web/image/1120-28c72ea3/1-Iconos-1.png" loading="lazy"/>
+                                <h3>Disponibilidad</h3>
+                                <p>
+                                    Publicamos un catálogo organizado y listo para
+                                    compra, brindando acompañamiento y soporte.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="nav-gallery o_colored_level">
+                <div class="container">
+                    <div class="nav-section-title">
+                        <h2>Nuestras colecciones</h2>
+                        <p>
+                            Una selección visual de productos modernos,
+                            elegantes y funcionales para el hogar y oficina.
+                        </p>
+                    </div>
+                    <div class="row g-4">
+                        <div class="col-lg-4 o_colored_level">
+                            <img class="img-fluid w-100" src="/web/image/website.library_image_03" loading="lazy"/>
+                        </div>
+                        <div class="col-lg-4 o_colored_level">
+                            <img class="img-fluid w-100" src="/web/image/website.library_image_13" loading="lazy"/>
+                        </div>
+                        <div class="col-lg-4 o_colored_level">
+                            <img class="img-fluid w-100" src="/web/image/website.library_image_14" loading="lazy"/>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </t>
+</t>
