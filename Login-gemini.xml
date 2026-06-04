@@ -1,0 +1,135 @@
+<data name="Glassmorphism Login">
+
+    <xpath expr="//div[contains(@class,'text-center') and contains(@class,'small')]" position="replace"/>
+
+    <xpath expr="//div[contains(@class,'card-body')]" position="before">
+        <style>
+            /* Importar tipografía Poppins */
+            @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&amp;display=swap');
+
+            body {
+                background-image: url("https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&amp;w=1920") !important;
+                background-size: cover !important;
+                background-position: center !important;
+                background-repeat: no-repeat !important;
+                background-attachment: fixed !important;
+                font-family: 'Poppins', sans-serif !important;
+            }
+
+            .container.py-5 {
+                max-width: 100% !important;
+            }
+
+            /* Contenedor con efecto Glassmorphism */
+            .o_database_list, .card, .oe_website_login_container {
+                background: rgba(255, 255, 255, 0.25) !important;
+                backdrop-filter: blur(16px) !important;
+                -webkit-backdrop-filter: blur(16px) !important;
+                border: 1px solid rgba(255, 255, 255, 0.35) !important;
+                border-radius: 20px !important;
+                box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15) !important;
+                max-width: 420px !important;
+                margin: auto !important;
+            }
+
+            .o_database_list .card-body, .card-body {
+                padding: 40px !important;
+                background: transparent !important;
+            }
+
+            /* CORRECCIÓN DE CONTRASTE: Color gris oscuro/púrpura para los textos nativos de Odoo */
+            .card-body label, 
+            .card-body .col-form-label, 
+            .card-body a, 
+            .card-body span, 
+            .card-body p, 
+            .card-body .small {
+                color: #4a3b5a !important; /* Tono oscuro elegante que combina con tu logo */
+                font-weight: 500 !important;
+            }
+
+            .card-body a:hover {
+                color: #1e1b4b !important;
+                text-decoration: underline !important;
+            }
+
+            /* Estilización de los campos de entrada nativos */
+            .card-body .form-control {
+                background: rgba(255, 255, 255, 0.6) !important;
+                border: 1px solid rgba(255, 255, 255, 0.5) !important;
+                color: #2e2a38 !important;
+                border-radius: 10px !important;
+                padding: 12px !important;
+                font-size: 14px !important;
+            }
+
+            .card-body .form-control::placeholder {
+                color: rgba(0, 0, 0, 0.4) !important;
+            }
+
+            .card-body .form-control:focus {
+                border-color: #38bdf8 !important;
+                background: rgba(255, 255, 255, 0.9) !important;
+                box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.25) !important;
+            }
+
+            /* Botón de Iniciar Sesión */
+            .card-body .btn-primary {
+                width: 100% !important;
+                padding: 14px !important;
+                border: none !important;
+                border-radius: 10px !important;
+                background: #38bdf8 !important;
+                color: white !important;
+                font-weight: 600 !important;
+                font-size: 15px !important;
+                letter-spacing: 0.5px !important;
+                transition: all 0.3s ease !important;
+                box-shadow: 0 4px 12px rgba(56, 189, 248, 0.2) !important;
+            }
+
+            .card-body .btn-primary:hover {
+                background: #0ea5e9 !important;
+                box-shadow: 0 6px 16px rgba(14, 165, 233, 0.3) !important;
+                transform: translateY(-1px) !important;
+            }
+
+            /* Botón secundario (Llave de acceso) */
+            .card-body .btn-secondary {
+                background: rgba(255, 255, 255, 0.7) !important;
+                border: 1px solid rgba(0, 0, 0, 0.08) !important;
+                color: #4a3b5a !important;
+                border-radius: 10px !important;
+                padding: 12px !important;
+                font-weight: 500 !important;
+            }
+
+            .card-body .btn-secondary:hover {
+                background: rgba(255, 255, 255, 0.9) !important;
+                color: #1e1b4b !important;
+            }
+
+            /* Título LOGIN Inferior Decorativo */
+            .glass-footer-title {
+                text-align: center;
+                color: rgba(255, 255, 255, 0.4);
+                font-size: 26px;
+                letter-spacing: 6px;
+                font-weight: 800;
+                margin-top: 30px;
+                text-transform: uppercase;
+                text-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+            }
+
+            /* Ocultar el título de base de datos nativo de Odoo si interfiere */
+            .card-body d-block {
+                color: #4a3b5a !important;
+            }
+        </style>
+    </xpath>
+
+    <xpath expr="//div[contains(@class,'card-body')]" position="inside">
+        <div class="glass-footer-title">LOGIN</div>
+    </xpath>
+
+</data>
