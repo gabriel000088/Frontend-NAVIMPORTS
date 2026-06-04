@@ -1,0 +1,118 @@
+<data name="Glassmorphism Login">
+
+    <xpath expr="//div[contains(@class,'text-center') and contains(@class,'small')]" position="replace"/>
+
+    <xpath expr="//div[contains(@class,'card-body')]" position="before">
+
+        <style>
+
+            body{
+                background-image:url("https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&amp;w=1920") !important;
+                background-size:cover !important;
+                background-position:center !important;
+                background-repeat:no-repeat !important;
+                background-attachment:fixed !important;
+            }
+
+            /* CENTRADO VERTICAL */
+            .container.py-5{
+                max-width:100% !important;
+                min-height:100vh !important;
+                display:flex !important;
+                justify-content:center !important;
+                align-items:center !important;
+                padding-top:0 !important;
+                padding-bottom:0 !important;
+            }
+
+            /* TARJETA */
+            .card.o_database_list{
+                background:rgba(255,255,255,0.10) !important;
+                backdrop-filter:blur(25px) !important;
+                -webkit-backdrop-filter:blur(25px) !important;
+                border:1px solid rgba(255,255,255,0.18) !important;
+                border-radius:24px !important;
+                box-shadow:0 25px 60px rgba(0,0,0,.35) !important;
+                max-width:420px !important;
+                overflow:hidden !important;
+            }
+
+            /* REDUCIR BORDE INTERNO SUPERIOR E INFERIOR */
+            .card.o_database_list .card-body{
+                background:transparent !important;
+                padding-top:24px !important;
+                padding-bottom:24px !important;
+                padding-left:40px !important;
+                padding-right:40px !important;
+            }
+
+            .bg-100{
+                background:transparent !important;
+            }
+
+            .glass-title{
+                text-align:center;
+                color:#ffffff !important;
+                font-size:28px;
+                font-weight:600;
+                letter-spacing:3px;
+                margin:18px 0 28px 0;
+            }
+
+            .o_database_list label{
+                color:#ffffff !important;
+                font-weight:500 !important;
+            }
+
+            .o_database_list .form-control{
+                background:rgba(255,255,255,.08) !important;
+                border:1px solid rgba(255,255,255,.20) !important;
+                color:#ffffff !important;
+                border-radius:12px !important;
+            }
+
+            .o_database_list .form-control::placeholder{
+                color:rgba(255,255,255,.70) !important;
+            }
+
+            .o_database_list .btn-primary{
+                background:#0ea5e9 !important;
+                border:none !important;
+                border-radius:12px !important;
+                padding:14px !important;
+                font-weight:600 !important;
+
+                transition:
+                    transform .25s ease,
+                    box-shadow .25s ease,
+                    background-color .25s ease !important;
+            }
+
+            /* NUEVA ANIMACIÓN */
+            .o_database_list .btn-primary:hover{
+                background:#0284c7 !important;
+                transform:translateY(-3px) scale(1.02);
+                box-shadow:0 10px 25px rgba(14,165,233,.35);
+            }
+
+            .o_database_list .btn-primary:active{
+                transform:translateY(0px) scale(0.99);
+            }
+
+            .o_database_list a{
+                color:#7dd3fc !important;
+            }
+
+        </style>
+
+    </xpath>
+
+    <xpath expr="//div[contains(@class,'text-center') and contains(@class,'pb-3')]" position="after">
+
+        <h2 class="glass-title">
+            LOGIN
+        </h2>
+
+    </xpath>
+
+</data>
