@@ -1,0 +1,103 @@
+<data name="Glassmorphism Login">
+
+    <!-- Eliminar footer de Odoo -->
+    <xpath expr="//div[contains(@class,'text-center') and contains(@class,'small')]" position="replace"/>
+
+    <!-- Insertar estilos -->
+    <xpath expr="//div[contains(@class,'card-body')]" position="before">
+
+        <style>
+
+            body {
+                background-image: url("https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&amp;w=1920") !important;
+                background-size: cover !important;
+                background-position: center !important;
+                background-repeat: no-repeat !important;
+                background-attachment: fixed !important;
+            }
+
+            .container.py-5{
+                max-width:100% !important;
+            }
+
+            .o_database_list{
+                background: rgba(255,255,255,0.08) !important;
+                backdrop-filter: blur(15px) !important;
+                -webkit-backdrop-filter: blur(15px) !important;
+                border: 1px solid rgba(255,255,255,0.2) !important;
+                border-radius: 20px !important;
+                box-shadow: 0 25px 50px rgba(0,0,0,.25) !important;
+                max-width: 420px !important;
+            }
+
+            .o_database_list .card-body{
+                padding:40px !important;
+            }
+
+            .o_database_list label{
+                color:white !important;
+                font-weight:500 !important;
+            }
+
+            .o_database_list h2{
+                color:white !important;
+            }
+
+            .o_database_list .form-control{
+                background: rgba(255,255,255,.08) !important;
+                border: 1px solid rgba(255,255,255,.20) !important;
+                color: white !important;
+                border-radius: 10px !important;
+                padding: 12px !important;
+            }
+
+            .o_database_list .form-control::placeholder{
+                color: rgba(255,255,255,.65) !important;
+            }
+
+            .o_database_list .form-control:focus{
+                border-color:#38bdf8 !important;
+                box-shadow:0 0 0 3px rgba(56,189,248,.25) !important;
+            }
+
+            .o_database_list .btn-primary{
+                width:100% !important;
+                padding:14px !important;
+                border:none !important;
+                border-radius:10px !important;
+                background:#0ea5e9 !important;
+                font-weight:600 !important;
+                letter-spacing:1px !important;
+            }
+
+            .o_database_list .btn-primary:hover{
+                background:#0284c7 !important;
+            }
+
+            .glass-title{
+                text-align:center;
+                color:white;
+                font-size:28px;
+                letter-spacing:3px;
+                margin-bottom:25px;
+                font-weight:600;
+            }
+
+            .o_database_list img{
+                max-height:120px !important;
+            }
+
+        </style>
+
+    </xpath>
+
+    <!-- Título personalizado -->
+    <xpath expr="//div[contains(@class,'card-body')]" position="inside">
+
+        <h2 class="glass-title">
+            LOGIN
+        </h2>
+
+    </xpath>
+
+</data>
